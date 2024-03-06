@@ -31,7 +31,10 @@ def announce(queryURLencoded, serverList):
             peerid=res["peer_id"].encode()
 
             eventMap={"none":0,"completed":1,"started":2,"stopped":3}
-            eventid=eventMap[res["event"]]
+            try:
+                eventid=eventMap[res["event"]]
+            except:
+                eventid=0
 
             #creo il client con il peerid passato
             client = TrackerClient(announce_uri=server,peerid=peerid,max_retransmissions=1)

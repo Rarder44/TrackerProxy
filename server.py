@@ -4,7 +4,7 @@ from flask import request
 from tool import getMyIP,getServerList
 from TrackerProxy import announce
 from settings import serverListUrl
-
+from Peer import Peer
 
 app=Flask(__name__)
 app.config['PROPAGATE_EXCEPTIONS']=True
@@ -17,7 +17,13 @@ def announce_proxy():
     query = request.query_string.decode()
     if query=='':
         return
-    return announce(query,serverList).bencode()
+    resp = announce(query,serverList)
+
+    peer:Peer
+    for peer in resp.peers:
+        print(f"{peer.ip}:{peer.port}")
+    print(resp)
+    return resp.bencode()
 
 
     

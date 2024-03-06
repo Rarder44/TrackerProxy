@@ -53,8 +53,8 @@ class TrakerResponse:
 
 
         #intervall e min_intervall prendo il minimo
-        self.interval=min(self.interval,anotherResponse.interval)
-        self.min_interval=min(self.min_interval,anotherResponse.min_interval)
+        self.interval=max(self.interval,anotherResponse.interval)
+        self.min_interval=max(self.min_interval,anotherResponse.min_interval)
 
         #unisco i peer
         for peer in anotherResponse.peers:
