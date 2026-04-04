@@ -9,7 +9,6 @@ from urllib.parse import urlparse
 from collections import defaultdict
 from ipaddress import ip_address
 from datetime import datetime, timedelta
-from version import __version__
 from TrackerResponse import TrakerResponse
 from Peer import Peer
 from settings import UDPtimeout
