@@ -43,4 +43,4 @@ def ip():
 if __name__ == "__main__":
     serverList=getServerList(serverListUrl)
 
-    app.run(port=25565,host="0.0.0.0") #,host="10.12.4.53")
+    app.run(port=1337,host="0.0.0.0") #,host="10.12.4.53")
