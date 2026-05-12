@@ -177,11 +177,11 @@ class UdpTrackerClientProto(asyncio.Protocol):
         return tr #peers,leechers,seeders
 
 class TrackerClient:
-    def __init__(self,
-                 announce_uri,
-                 max_retransmissions=8,
-                 peerid=None):
-        self.logger = logging.getLogger(__name__)
+     def __init__(self,
+                  announce_uri,
+                  max_retransmissions=8,
+                  peerid=None):
+         self.logger = logging.getLogger('[TrackerProxy]')
 
         scheme, netloc, _, _, _, _ = urlparse(announce_uri)
         if scheme != 'udp':
