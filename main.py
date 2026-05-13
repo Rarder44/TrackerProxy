@@ -1,9 +1,10 @@
 from tool import getServerList
 from settings import serverListUrl
 from TrackerProxy import announce
-
-
-
+from logging_config import setup_logging
+import logging
+# Setup centralized logging
+logger = setup_logging(log_level=logging.DEBUG)
 
 serverList=[
     "udp://127.0.0.1:8000",
