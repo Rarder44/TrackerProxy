@@ -86,7 +86,7 @@ def announce(queryURLencoded, serverList):
                         ))
                         
                         if tr:
-                            logger.info(f"[announce] [{idx}] ✓ UDP announce successful: "
+                            logger.info(f"[announce] [{idx}] [OK] UDP announce successful: "
                                       f"seeders={tr.complete}, leechers={tr.incomplete}, peers={len(tr.peers)}")
                         else:
                             logger.warning(f"[announce] [{idx}] UDP announce returned no response")
@@ -114,7 +114,7 @@ def announce(queryURLencoded, serverList):
                         tr = TrakerResponse.parse(d)
                         
                         if tr:
-                            logger.info(f"[announce] [{idx}] ✓ HTTP announce successful: "
+                            logger.info(f"[announce] [{idx}] [OK] HTTP announce successful: "
                                       f"seeders={tr.complete}, leechers={tr.incomplete}, peers={len(tr.peers)}")
                         else:
                             logger.warning(f"[announce] [{idx}] HTTP response parsing returned None")
@@ -130,7 +130,7 @@ def announce(queryURLencoded, serverList):
 
         # Processa il risultato
         if tr is None:
-            logger.error(f"[announce] [{idx}] ✗ {server} - No valid response")
+            logger.error(f"[announce] [{idx}] [FAILED] {server} - No valid response")
             failed_trackers += 1
             continue
         
